@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portal de Exames Médicos
 
-## Getting Started
+Este projeto é um portal de exames médicos desenvolvido com Next.js, permitindo que pacientes visualizem seus resultados e médicos gerenciem os exames de seus pacientes.
 
-First, run the development server:
+## Sobre o Projeto
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+🏥 **Mediexam — Portal de Exames Médicos**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Mediexam é uma aplicação web desenvolvida com Next.js que oferece um portal seguro para acesso e gerenciamento de exames médicos, com autenticação robusta e fluxos personalizados para pacientes e médicos. O sistema implementa autenticação multinível, verificação de dois fatores (2FA) e controle de acesso baseado em funções (RBAC).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### ✨ Funcionalidades Principais
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **🔐 Autenticação com NextAuth.js**: Utiliza o credentials provider para autenticação segura.
+- **🔁 Fluxos Distintos de Login**: Pacientes e médicos têm fluxos personalizados, com redirecionamento automático para dashboards específicos.
+- **✅ Verificação em Duas Etapas (2FA)**:
+  - E-mail (para pacientes)
+  - TOTP (para médicos - configurável)
+- **🧠 Controle de Sessão**: Utiliza JWT com metadados adicionais como role, mfaType e status de 2FA.
+- **🧭 Proteção de Rotas**: Middleware inteligente impede acesso a áreas restritas sem 2FA.
+- **🍪 Persistência Temporária**: Utiliza cookies para manter a verificação temporária.
+- **📦 Estrutura Modular**: Separação clara entre responsabilidades (api, auth, components, etc).
 
-## Learn More
+## Funcionalidades
 
-To learn more about Next.js, take a look at the following resources:
+- **Autenticação**: Login seguro com validação de credenciais e suporte a MFA.
+- **Dashboard do Paciente**: Visualização de todos os exames médicos do paciente.
+- **Dashboard do Médico**: Gerenciamento de pacientes e seus exames, com opção para adicionar novos exames.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contas Demo
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Para facilitar o acesso, utilize as seguintes contas:
 
-## Deploy on Vercel
+- **Paciente**: alice@paciente.com / 123456
+- **Médico**: dr.bob@medico.com / 654321
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Tecnologias Utilizadas
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Next.js**: Framework React para desenvolvimento web.
+- **React**: Biblioteca para construção de interfaces.
+- **NextAuth**: Autenticação e gerenciamento de sessão.
+- **Zod**: Validação de formulários.
+- **TailwindCSS**: Estilização e design responsivo.
+- **TypeScript**: Tipagem estática para maior segurança e produtividade.
+
+## Estrutura do Projeto
+
+- **src/app**: Contém as rotas e páginas da aplicação.
+  - **(public)**: Páginas públicas, como login e autenticação.
+  - **(private)**: Páginas privadas, como dashboards de pacientes e médicos.
+- **src/components**: Componentes reutilizáveis da aplicação.
+- **src/lib**: Funções utilitárias e lógica de negócio.
+- **src/providers**: Provedores de contexto e configurações globais.
+- **src/types**: Definições de tipos TypeScript.
+
+## Como Executar
+
+1. Clone o repositório:
+   ```bash
+   git clone <url-do-repositorio>
+   cd medical-exams
+   ```
+
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
+
+3. Execute o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
+
+4. Acesse [http://localhost:3000](http://localhost:3000) no seu navegador.
+
+## Deploy
+
+O projeto pode ser facilmente implantado na [Vercel](https://vercel.com), plataforma recomendada para aplicações Next.js.
+
+## Contribuição
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
+
+## Licença
+
+Este projeto está licenciado sob a licença MIT.
