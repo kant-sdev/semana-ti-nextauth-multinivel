@@ -31,7 +31,7 @@ Mediexam é uma aplicação web desenvolvida com Next.js que oferece um portal s
 Para facilitar o acesso, utilize as seguintes contas:
 
 - **Paciente**: alice@paciente.com / 123456
-- **Médico**: dr.bob@medico.com / 654321
+- **Médico**: dr.bob@medico.com / 123456
 
 ## Tecnologias Utilizadas
 

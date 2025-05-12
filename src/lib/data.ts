@@ -40,7 +40,7 @@ export const users: AppUser [] = [
         password: "123456",
         role: "patient",
         name: "Bob Costa",
-        dateOfBirth: "1985-06-25",
+        dateOfBirth: "1985-06-25",  
         phone: "(11) 97654-3210",
         address: {
             street: "Rua da Paz, 456",
